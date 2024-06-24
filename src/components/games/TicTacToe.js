@@ -128,18 +128,17 @@ export default function TicTacToe() {
       return;
     }
 
+    setMovesHistory((prevHistory) => [...prevHistory, newBoard]);
+
     if (!newBoard.includes(null)) {
       setTies(ties + 1);
       playTieSound();
       setIsDisabled(false);
-      return;
+    } else {
+      setTimeout(() => {
+        handleAIMove(newBoard);
+      }, 2000);
     }
-
-    setMovesHistory((prevHistory) => [...prevHistory, newBoard]);
-
-    setTimeout(() => {
-      handleAIMove(newBoard);
-    }, 2000);
   };
 
   const handleAIMove = (currentBoard) => {
