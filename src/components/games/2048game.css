@@ -1,0 +1,107 @@
+.game-container {
+    max-width: 400px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  
+  .game-header {
+    margin-bottom: 20px;
+  }
+  
+  .game-header h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .score {
+    font-size: 18px;
+  }
+  
+  .game-board {
+    width: 320px;
+    margin: 0 auto;
+    background-color: #bbada0;
+    padding: 10px;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  
+  .board-row {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .board-cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    background-color: #cdc1b4;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  .board-cell.value-2 {
+    background-color: #eee4da;
+    color: #776e65;
+  }
+  
+  .board-cell.value-4 {
+    background-color: #ede0c8;
+    color: #776e65;
+  }
+  
+  .board-cell.value-8 {
+    background-color: #f2b179;
+    color: #ffffff;
+  }
+  
+  .board-cell.value-16 {
+    background-color: #f59563;
+    color: #ffffff;
+  }
+  
+  .board-cell.value-32 {
+    background-color: #f67c5f;
+    color: #ffffff;
+  }
+  
+  .board-cell.value-64 {
+    background-color: #f65e3b;
+    color: #ffffff;
+  }
+  
+  .board-cell.value-128 {
+    background-color: #edcf72;
+    color: #ffffff;
+  }
+  
+  .board-cell.value-256 {
+    background-color: #edcc61;
+    color: #ffffff;
+  }
+  
+  .board-cell.value-512 {
+    background-color: #edc850;
+    color: #ffffff;
+  }
+  
+  .board-cell.value-1024 {
+    background-color: #edc53f;
+    color: #ffffff;
+  }
+  
+  .board-cell.value-2048 {
+    background-color: #edc22e;
+    color: #ffffff;
+  }
+  
+  .board-cell.empty {
+    background-color: #cdc1b4;
+  }
+  

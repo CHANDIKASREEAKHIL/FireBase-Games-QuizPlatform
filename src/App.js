@@ -18,6 +18,7 @@ import { auth } from "./components/firebase";
 import Main from "./components/mainPage";
 import Dashboard from "./components/dashboard/dashboard";
 import TicTacToe from "./components/games/TicTacToe";
+import Game2048 from "./components/games/game2048";
 
 function App() {
   const [user, setUser] = useState();
@@ -41,6 +42,7 @@ function App() {
               <Route path="/profile" element={<Profile />} />
               <Route path="/home" element={<Dashboard />} />
               <Route path="/tic-tac-toe" element={<TicTacToe />} />
+              <Route path="/game2048" element={<Game2048 />} />
             </Routes>
             <ToastContainer />
           </div>
