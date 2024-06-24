@@ -16,18 +16,11 @@ const DynamicForm = ({
   validationRules = {}, 
   borderColour,
 }) => {
-  const [passwordVisibility, setPasswordVisibility] = useState({});
 
   const getInitialValue = (key) => {
     return displayValues[key] !== undefined ? displayValues[key] : values[key];
   };
 
-  const togglePasswordVisibility = (key) => {
-    setPasswordVisibility((prev) => ({
-      ...prev,
-      [key]: !prev[key],
-    }));
-  };
 
   const getDateAttributes = (rules) => {
     const currentDate = new Date().toISOString().split("T")[0];
@@ -91,8 +84,6 @@ const DynamicForm = ({
                     type={
                       isTextDisabled
                         ? "text"
-                        : passwordVisibility[key]
-                        ? "text"
                         : inputType
                     }
                     value={value}
@@ -109,19 +100,6 @@ const DynamicForm = ({
                         : undefined
                     } 
                   />
-                {inputType === "password" && (
-                  <span
-                    className={Styles.togglePassword}
-                    onClick={() => togglePasswordVisibility(key)}>
-                    <span
-                      className="material-symbols-outlined"
-                      style={{ fontSize: "2.5vh", color:"#633172" }}>
-                      {passwordVisibility[key]
-                        ? "visibility_off"
-                        : "visibility"}
-                    </span>
-                  </span>
-                )}
               </>
           </div>
         );
