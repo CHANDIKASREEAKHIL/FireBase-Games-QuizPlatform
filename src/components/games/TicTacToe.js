@@ -1,9 +1,15 @@
 import React from "react";
 import styles from "./games.module.css";
 import LoginHeader from "../header/LoginHeader";
+import useSound from "use-sound";
 
 import xImage from "../../images/x.png";
 import oImage from "../../images/o.png";
+import winSound from "../../sounds/win.wav";
+import loseSound from "../../sounds/lost.wav";
+import tieSound from "../../sounds/tie.wav";
+import xSound from "../../sounds/x.wav";
+import oSound from "../../sounds/o.wav";
 
 const initialBoardState = Array(9).fill(null);
 
@@ -16,6 +22,12 @@ export default function TicTacToe() {
   const [ties, setTies] = React.useState(0);
   const [movesHistory, setMovesHistory] = React.useState([]);
   const [isDisabled, setIsDisabled] = React.useState(false);
+
+  const [playWinSound] = useSound(winSound);
+  const [playLoseSound] = useSound(loseSound);
+  const [playTieSound] = useSound(tieSound);
+  const [playXSound] = useSound(xSound);
+  const [playOSound] = useSound(oSound);
 
   const lines = [
     [0, 1, 2],
@@ -99,6 +111,7 @@ export default function TicTacToe() {
     newBoard[i] = "X";
     setBoard(newBoard);
     setIsXNext(false);
+    playXSound();
     setIsDisabled(true);
 
     const gameWinner = calculateWinner(newBoard);
@@ -106,8 +119,10 @@ export default function TicTacToe() {
       setWinner(gameWinner);
       if (gameWinner === "X") {
         setXWins(xWins + 1);
+        playWinSound();
       } else {
         setOWins(oWins + 1);
+        playLoseSound();
       }
       setIsDisabled(false);
       return;
@@ -117,6 +132,7 @@ export default function TicTacToe() {
 
     if (!newBoard.includes(null)) {
       setTies(ties + 1);
+      playTieSound();
       setIsDisabled(false);
     } else {
       setTimeout(() => {
@@ -131,17 +147,21 @@ export default function TicTacToe() {
     newBoard[bestMove] = "O";
     setBoard(newBoard);
     setIsXNext(true);
+    playOSound();
 
     const gameWinner = calculateWinner(newBoard);
     if (gameWinner) {
       setWinner(gameWinner);
       if (gameWinner === "X") {
         setXWins(xWins + 1);
+        playWinSound();
       } else {
         setOWins(oWins + 1);
+        playLoseSound();
       }
     } else if (!newBoard.includes(null)) {
       setTies(ties + 1);
+      playTieSound();
     }
 
     setIsDisabled(false);
