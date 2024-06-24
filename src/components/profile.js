@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { auth, db } from "./firebase";
 import { doc, getDoc } from "firebase/firestore";
+import LoginHeader from "./header/LoginHeader";
 
 function Profile() {
   const [userDetails, setUserDetails] = useState(null);
@@ -32,17 +33,8 @@ function Profile() {
     }
   }
   return (
-    <div>
-      <div className="header">
-        <div className="leftDiv" onClick={redirectMain}>
-          GameON </div>
-        <div className="rightDiv">
-          <p onClick={redirectMain}> Home </p>
-          <p> Progress </p>
-          <p onClick={redirectProfile}> Profile </p>
-          <p onClick={handleLogout}> Logout </p>
-        </div>
-      </div>
+    <div className="mainDiv">
+      <LoginHeader />
       {userDetails ? (
         <>
           <div style={{ display: "flex", justifyContent: "center" }}>
