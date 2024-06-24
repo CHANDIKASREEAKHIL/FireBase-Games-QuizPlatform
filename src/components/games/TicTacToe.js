@@ -200,8 +200,8 @@ export default function TicTacToe() {
     return (
       <div
         className={styles.square}
-        onClick={() => (isDisabled ? null : handleClick(i))}
-        style={isDisabled ? { pointerEvents: "none", opacity: 0.5 } : {}}
+        onClick={() =>handleClick(i)}
+        style={{pointerEvents: "none", opacity: 0.5}}
       >
         {symbolImage}
       </div>
