@@ -176,17 +176,15 @@ export default function TicTacToe() {
     setIsDisabled(false);
   };
 
-  const handleUndo = () => {
-    if (movesHistory.length > 0) {
-      const lastMove = movesHistory[movesHistory.length - 2] 
-      || initialBoardState;
-      setBoard(lastMove);
-      setIsXNext((prev) => !prev);
-      setMovesHistory((prevHistory) => 
-        prevHistory.slice(0, -1));
-      setIsDisabled(false);
-    }
-  };
+    const handleUndo = () => {
+      if (movesHistory.length > 0) {
+        const lastMove = movesHistory[movesHistory.length - 1] || initialBoardState;
+        setBoard(lastMove);
+        setIsXNext((prev) => !prev);
+        setMovesHistory((prevHistory) => prevHistory.slice(0, -1));
+        setIsDisabled(false);
+      }
+    };
 
   
   const renderSquare = (i) => {
