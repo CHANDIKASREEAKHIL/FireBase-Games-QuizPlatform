@@ -33,8 +33,7 @@ function Profile() {
     }
   }
   return (
-    <div className="mainDiv">
-      <LoginHeader />
+    <div>
       {userDetails ? (
         <>
           <div style={{ display: "flex", justifyContent: "center" }}>
