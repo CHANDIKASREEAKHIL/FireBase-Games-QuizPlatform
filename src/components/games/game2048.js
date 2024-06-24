@@ -29,6 +29,7 @@ const Game2048 = () => {
       newBoard[x][y] = newValue;
       return newBoard;
     });
+    setGameOver(checkGameOver());
   }, [board]);
 
   const checkGameOver = useCallback(() => {
