@@ -4,14 +4,15 @@ body{
 }
 .mainDiv{
     background-image: url("../images/mainBG.png");
-    background-repeat: no-repeat;
-    object-fit: cover;
-    background-size: cover; 
-    background-position: center; 
     height: 100vh;
     width: 100vw;
     display: grid;
     grid-template-rows: 2fr 10fr;
+}
+.rightSection {
+    background-image: url("../images/heroImg.png");
+    height: 70vh;
+    width: 30vw;
 }
 .innerGrid{
     display: grid;
@@ -23,14 +24,7 @@ body{
     grid-template-rows: min-content min-content min-content;
     gap: 5vh;
 }
-.rightSection {
-    background-image: url("../images/heroImg.png");
-    background-repeat: no-repeat;
-    background-size: cover; 
-    background-position: center; 
-    height: 70vh;
-    width: 30vw;
-}
+
 .header{
     display: flex;
     justify-content: space-between;
